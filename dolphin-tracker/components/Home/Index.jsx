@@ -1,30 +1,24 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const Home = () => {
-  // Define a state variable to track the selected option
   const [selectedOwner, setSelectedOwner] = useState("");
+  const navigate = useNavigate(); // Use useNavigate instead of useHistory
 
-  // Define an array of owner options
-  const ownerOptions = [
-    "Godolphin",
-    "Coolmore",
-    "Darley",
-    // Add more owner options as needed
-  ];
+  const ownerOptions = ["Godolphin", "Coolmore", "Darley"];
 
-  // Handle the change event when an option is selected
   const handleOwnerChange = (event) => {
     setSelectedOwner(event.target.value);
   };
 
-  // Handle the button click event
   const handleButtonClick = () => {
-    // Perform an action when the button is clicked
-    // For example, you can display an alert with the selected owner
-    if (selectedOwner) {
-      alert(`You selected: ${selectedOwner}`);
+    if (selectedOwner === "Godolphin") {
+      // Navigate to the "/owners/godolphin" route using navigate
+      navigate("/owners/godolphin");
+      // Display an alert
+      alert('You selected "Godolphin" and navigated to /owners/godolphin.');
     } else {
-      alert("Please select an owner.");
+      alert('Please select "Godolphin" from the dropdown.');
     }
   };
 
@@ -32,7 +26,6 @@ const Home = () => {
     <>
       <div className="home-container">
         <h1>Owners List</h1>
-        {/* Dropdown select */}
         <select value={selectedOwner} onChange={handleOwnerChange}>
           <option value="">Select an Owner</option>
           {ownerOptions.map((owner, index) => (
@@ -41,9 +34,7 @@ const Home = () => {
             </option>
           ))}
         </select>
-        {/* Button */}
         <button onClick={handleButtonClick}>Submit</button>
-        {/* Display selected owner */}
         {selectedOwner && <p>You selected: {selectedOwner}</p>}
       </div>
     </>
