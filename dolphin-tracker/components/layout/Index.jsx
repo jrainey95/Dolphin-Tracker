@@ -1,25 +1,24 @@
 import './index.scss';
 import React from "react";
 import PropTypes from "prop-types";
+import Nav from '../Nav/Index';
+import { Outlet } from "react-router-dom";
 
-function Layout({ children }) {
+const Layout = () => {
   return (
-    <div className="layout">
-      <header>
-        <h1></h1>
-      </header>
-      <main>{children}</main>
-      <main>Results</main>
-      <footer>
-        <p> </p>
-      </footer>
+    <div className="App">
+      <Nav />
+      <div className="page">
+        <span className="tags top-tags"></span>
+
+        <Outlet />
+        <span className="tags bottom-tags">
+          <br />
+          <span className="bottom-tag-html"></span>
+        </span>
+      </div>
     </div>
   );
-}
-
-// Add prop validation
-Layout.propTypes = {
-  children: PropTypes.node.isRequired, // Ensures children is a React node and is required.
 };
 
 export default Layout;
