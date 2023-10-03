@@ -4,6 +4,7 @@ import Home from '../components/Home/Index';
 import Layout from '../components/Layout/Index';
 import Owners from '../components/Owners/Index';
 
+import './index.css'
 import './App.scss'
 import DolphinOwners from '../components/DolphinOwner/Index';
 

@@ -9,12 +9,14 @@ app.use(cors());
 
 app.get("/api/fetchData", async (req, res) => {
   try {
-    const response = await axios.get(
+    const axiosResponse = await axios.get(
       "https://www.godolphin.com/runners-and-results/runners"
     );
-    const data = response.data;
-    console.log(response.data)
-    res.json(data);
+    const html = await axiosResponse.data; // Use axiosResponse.data to get the HTML content
+    console.log('html', html);
+
+    // Send the HTML content as a response to the client
+    res.send(html);
   } catch (error) {
     console.error("Error fetching data:", error);
     res.status(500).json({ error: "Unable to fetch data" });

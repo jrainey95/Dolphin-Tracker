@@ -1,4 +1,19 @@
+ html {
+  color: #273136;
+  font: 60%;
+}
 
+body {
+  margin: 0;
+  font: 300 14px/1.4 'Helvetica Neue', sans-serif;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+   background: #7090a0;
+  overflow: hidden;
+  text-align: center;
+} 
 .layout {
   display: flex;
   flex-direction: column;
@@ -19,13 +34,13 @@ main, p {
 
 footer {
 
-  color: rgb(0, 0, 0);
+  color: rgb(199, 189, 189);
   padding: 1rem;
   text-align: center;
 }
 
 p { 
-  color: rgb(0, 0, 0);
+  color: #ffffff;
   padding: 1rem;
   text-align: center;
 }
